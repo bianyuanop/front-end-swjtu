@@ -3,6 +3,12 @@ import App from './App.vue'
 import installElementPlus from './plugins/element'
 import router from './router'
 
-const app = createApp(App).use(router)
+const app = createApp(App).use(router).mixin({
+    methods: {
+        directTo(url) {
+            window.location = url;
+        }
+    }
+})
 installElementPlus(app)
 app.mount('#app')
